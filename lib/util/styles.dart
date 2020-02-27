@@ -12,16 +12,16 @@ const logoText = TextStyle(
 class Styles{
   Styles();
   static var themeData = ThemeData(
-    primarySwatch: primaryColor,
       primaryColor: primaryColor,
       accentColor: secondaryColor
   );
 
-  static Color primaryColor = Color(0xFFD49E15);
-  static Color secondaryColor = Color(0xFFDAB14A);
-  static Color brandColor = Color(0xFFCDCDCD);
-  static Color defaultColor = Colors.white;
-  static Color darkColor = Color(0xFF0F1518);
+  static var primaryColor = Color(0xFFD49E15);
+  static var secondaryColor = Color(0xFFDAB14A);
+  static  var brandColor = Color(0xFFCDCDCD);
+  static var defaultColor = Colors.white;
+  static var darkColor = Color(0xFF0F1518);
+
 
 
   static TextStyle h1 = TextStyle(

@@ -8,13 +8,19 @@ import 'package:good_meal/home/welcome_screen.dart';
 
 class Routes {
   Routes();
+  static  String splash = SplashScreen.id;
+  static  String welcome = WelcomeScreen.id;
+  static  String home = HomeScreen.id;
+  static  String login   = LoginScreen.id;
+  static  String passwordreset   = PasswordRest.id;
+  static  String register   = RegisterScreen.id;
 
   static final routes = <String, WidgetBuilder>{
-    SplashScreen.id: (BuildContext context) => SplashScreen(),
-    WelcomeScreen.id: (BuildContext context) => WelcomeScreen(),
-    HomeScreen.id: (BuildContext context) => HomeScreen(),
-    LoginScreen.id: (BuildContext context) => LoginScreen(),
-    PasswordRest.id: (BuildContext context) => PasswordRest(),
-    RegisterScreen.id: (BuildContext context) => RegisterScreen()
+    splash: (BuildContext context) => SplashScreen(),
+    welcome: (BuildContext context) => WelcomeScreen(),
+    home: (BuildContext context) => HomeScreen(),
+    login: (BuildContext context) => LoginScreen(),
+    passwordreset: (BuildContext context) => PasswordRest(),
+    register: (BuildContext context) => RegisterScreen()
   };
 }

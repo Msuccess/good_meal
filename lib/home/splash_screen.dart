@@ -1,14 +1,25 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:good_meal/routes.dart';
 import 'package:good_meal/util/styles.dart';
 
 class SplashScreen extends StatefulWidget {
-  static final String id = 'splash_screen';
+  static final String id = '/';
 
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 3), () {
+      Navigator.pushNamed(context, Routes.welcome);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,6 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Expanded(
+                flex: 2,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -36,7 +48,6 @@ class _SplashScreenState extends State<SplashScreen> {
                         boxShadow: [
                           BoxShadow(
                             color: Colors.white30,
-
                             blurRadius: 0.0,
                             spreadRadius: 5.0,
                           )
@@ -55,6 +66,13 @@ class _SplashScreenState extends State<SplashScreen> {
                     Text(
                       'GOOD MEALS',
                       style: logoText,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 20.0),
+                    ),
+                    CircularProgressIndicator(
+                      valueColor:
+                          new AlwaysStoppedAnimation<Color>(Colors.white),
                     ),
                   ],
                 ),
