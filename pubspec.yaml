@@ -11,22 +11,31 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^0.1.2
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
-flutter:
 
+flutter:
   uses-material-design: true
+
   assets:
     - assets/
+
   fonts:
-    - family: Raleway
-      fonts:
-        - asset: fonts/Raleway-Regular.ttf
-        - asset: fonts/Raleway-Italic.ttf
-          style: italic
-    - family: RobotoMono
-      fonts:
-        - asset: fonts/RobotoMono-Regular.ttf
-        - asset: fonts/RobotoMono-Bold.ttf
-          weight: 700
+
+  - family: Montserrat-Black
+    fonts:
+     - asset: fonts/Montserrat-Black.ttf
+
+  - family: Montserrat-Bold
+    fonts:
+      - asset: fonts/Montserrat-Bold.ttf
+
+  - family: Montserrat-Light
+    fonts:
+      - asset: fonts/Montserrat-Light.ttf
+
+  - family: Montserrat-Italic
+    fonts:
+      - asset: fonts/Montserrat-Italic.ttf

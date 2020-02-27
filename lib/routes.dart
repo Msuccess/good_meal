@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:good_meal/pages/auth/login.dart';
-import 'package:good_meal/pages/home/home.dart';
-import 'package:good_meal/pages/home/splash.dart';
+import 'package:good_meal/auth/login.dart';
+import 'package:good_meal/auth/password_reset.dart';
+import 'package:good_meal/auth/register.dart';
+import 'package:good_meal/home/home_screen.dart';
+import 'package:good_meal/home/splash_screen.dart';
+import 'package:good_meal/home/welcome_screen.dart';
 
-class Routes{
-  Routes._();
-  //static variables
-  static const String splash = '/splash';
-  static const String login = '/login';
-  static const String home = '/home';
+class Routes {
+  Routes();
 
   static final routes = <String, WidgetBuilder>{
-    splash: (BuildContext context) => SplashScreen(),
-    login: (BuildContext context) => LoginScreen(),
-    home: (BuildContext context) => HomeScreen(),
+    SplashScreen.id: (BuildContext context) => SplashScreen(),
+    WelcomeScreen.id: (BuildContext context) => WelcomeScreen(),
+    HomeScreen.id: (BuildContext context) => HomeScreen(),
+    LoginScreen.id: (BuildContext context) => LoginScreen(),
+    PasswordRest.id: (BuildContext context) => PasswordRest(),
+    RegisterScreen.id: (BuildContext context) => RegisterScreen()
   };
 }

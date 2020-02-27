@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:good_meal/pages/auth/login.dart';
-import 'package:good_meal/utils/constants.dart';
+import 'package:good_meal/home/splash_screen.dart';
+import 'package:good_meal/routes.dart';
+import 'package:good_meal/util/styles.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -9,9 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: themeData,
-      home: LoginScreen()
+      theme: Styles.themeData,
+      home: SplashScreen(),
+//      initialRoute: Routes.routes.,
+      routes: Routes.routes,
     );
   }
 }
-
