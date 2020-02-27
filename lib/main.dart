@@ -3,6 +3,7 @@ import 'package:good_meal/home/splash_screen.dart';
 import 'package:good_meal/routes.dart';
 import 'package:good_meal/util/styles.dart';
 
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -17,5 +18,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
