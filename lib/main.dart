@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:good_meal/pages/home/home.dart';
+import 'package:good_meal/pages/auth/login.dart';
 import 'package:good_meal/utils/constants.dart';
 
 void main() => runApp(MyApp());
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: themeData,
-      home: HomeScreen()
+      home: LoginScreen()
     );
   }
 }
