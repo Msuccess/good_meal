@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:good_meal/routes.dart';
 import 'package:good_meal/util/styles.dart';
+import 'package:good_meal/widgets/logo_widget.dart';
 
 class SplashScreen extends StatefulWidget {
   static final String id = '/';
@@ -54,11 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         ],
                         color: Styles.defaultColor,
                       ),
-                      child: Image(
-                        image: AssetImage('assets/logo.png'),
-                        width: 50.0,
-                        height: 50.0,
-                      ),
+                      child: LogoWidget(),
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: 10.0),
@@ -84,3 +81,5 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
+
+
