@@ -8,6 +8,12 @@ const logoText = TextStyle(
 //    fontWeight: FontWeight.w300,
     color: Colors.white
 );
+const h7 = TextStyle(
+fontFamily: 'OpenSans-Bold',
+fontStyle: FontStyle.normal,
+height: 1.4,
+fontSize: 12.0
+);
 
 class Styles{
   Styles();
@@ -25,44 +31,44 @@ class Styles{
 
 
   static TextStyle h1 = TextStyle(
-      fontFamily: 'Montserrat-Bold',
+      fontFamily: 'OpenSans-Regular',
       fontSize: 30.0,
       fontStyle: FontStyle.normal,
       fontWeight: FontWeight.bold
   );
 
   static TextStyle h2 = TextStyle(
-      fontFamily: 'Montserrat-Bold',
+      fontFamily: 'OpenSans-Regular',
       fontSize: 20.0,
       fontStyle: FontStyle.normal,
       fontWeight: FontWeight.bold,
   );
 
   static TextStyle h3 = TextStyle(
-      fontFamily: 'Montserrat-Light',
+      fontFamily: 'OpenSans-Regular',
       fontSize: 15.0,
       fontStyle: FontStyle.normal,
       fontWeight: FontWeight.normal
   );
 
   static TextStyle h4 = TextStyle(
-      fontFamily: 'Montserrat-Bold',
+    fontFamily: 'OpenSans-Light',
       fontSize: 15.0,
       fontStyle: FontStyle.normal,
-      fontWeight: FontWeight.bold
   );
 
   static TextStyle h5 = TextStyle(
-      fontFamily: 'Montserrat-Bold',
-      fontSize: 10.0,
+      fontFamily: 'OpenSans-Regular',
+      fontSize: 15.0,
       fontStyle: FontStyle.normal,
-      fontWeight: FontWeight.bold,
   );
 
   static TextStyle h6 = TextStyle(
-    fontFamily: 'Montserrat-Bold',
+    fontFamily: 'OpenSans-Bold',
     fontSize: 8.0,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
+      color: Styles.darkColor
   );
+
 }
