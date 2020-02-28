@@ -25,19 +25,18 @@ flutter:
     - assets/images/
 
   fonts:
-
-  - family: Montserrat-Black
+  - family: PhosphateInline
     fonts:
-     - asset: fonts/Montserrat-Black.ttf
+     - asset: fonts/PhosphateInline.ttf
 
-  - family: Montserrat-Bold
+  - family: OpenSans-Bold
     fonts:
-      - asset: fonts/Montserrat-Bold.ttf
+     - asset: fonts/OpenSans-Bold.ttf
 
-  - family: Montserrat-Light
+  - family: OpenSans-Regular
     fonts:
-      - asset: fonts/Montserrat-Light.ttf
+     - asset: fonts/OpenSans-Regular.ttf
 
-  - family: Montserrat-Italic
+  - family: OpenSans-Light
     fonts:
-      - asset: fonts/Montserrat-Italic.ttf
+     - asset: fonts/OpenSans-Light.ttf
