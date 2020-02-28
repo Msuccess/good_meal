@@ -1,25 +1,63 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-const logoText = TextStyle(
-    fontSize: 20.0,
-    fontFamily: 'Montserrat-Bold',
+  const logoText = TextStyle(
+      fontSize: 20.0,
+      fontFamily: 'Montserrat-Bold',
+      fontStyle: FontStyle.normal,
+  //    fontWeight: FontWeight.w300,
+      color: Colors.white
+  );
+    const h7 = TextStyle(
+    fontFamily: 'OpenSans-Bold',
     fontStyle: FontStyle.normal,
-//    fontWeight: FontWeight.w300,
-    color: Colors.white
+    height: 1.4,
+    fontSize: 12.0
+    );
+    const textLoginLink = TextStyle(
+    fontFamily: 'OpenSans-Bold',
+    fontSize: 10.0,
+    fontStyle: FontStyle.normal,
+    color: Color(0xFF0F1518)
+  );
+
+ TextStyle buttonText = TextStyle(
+    fontFamily: 'OpenSans-Regular',
+    fontSize: 10.0,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.bold,
+    color: Styles.darkColor
 );
-const h7 = TextStyle(
-fontFamily: 'OpenSans-Bold',
-fontStyle: FontStyle.normal,
-height: 1.4,
-fontSize: 12.0
+
+  TextStyle   alreadyHaveTxt = TextStyle(
+  fontFamily: 'OpenSans-Bold',
+  fontSize: 8.0,
+  fontStyle: FontStyle.normal,
+  fontWeight: FontWeight.bold,
+  color: Styles.darkColor
+  );
+
+const   welcomeTxt = TextStyle(
+    fontFamily: 'OpenSans-Regular',
+    fontSize: 20.0,
+    fontStyle: FontStyle.normal,
+    color: Color(0xFFD49E15),
+    fontWeight: FontWeight.bold
+);
+
+const   inputLabel = TextStyle(
+    fontFamily: 'OpenSans-Bold',
+    fontSize: 12.0,
+    fontStyle: FontStyle.normal,
+    color: Color(0xFF0F1518),
 );
 
 class Styles{
   Styles();
   static var themeData = ThemeData(
       primaryColor: primaryColor,
-      accentColor: secondaryColor
+      accentColor: secondaryColor,
+      hintColor: primaryColor
   );
 
   static var primaryColor = Color(0xFFD49E15);
@@ -42,7 +80,9 @@ class Styles{
       fontSize: 20.0,
       fontStyle: FontStyle.normal,
       fontWeight: FontWeight.bold,
+      color: Styles.primaryColor
   );
+
 
   static TextStyle h3 = TextStyle(
       fontFamily: 'OpenSans-Regular',
@@ -57,11 +97,6 @@ class Styles{
       fontStyle: FontStyle.normal,
   );
 
-  static TextStyle h5 = TextStyle(
-      fontFamily: 'OpenSans-Regular',
-      fontSize: 15.0,
-      fontStyle: FontStyle.normal,
-  );
 
   static TextStyle h6 = TextStyle(
     fontFamily: 'OpenSans-Bold',
@@ -70,5 +105,6 @@ class Styles{
     fontWeight: FontWeight.bold,
       color: Styles.darkColor
   );
+
 
 }

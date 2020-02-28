@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:good_meal/auth/register.dart';
-import 'package:good_meal/routes.dart';
 import 'package:good_meal/util/styles.dart';
 import 'package:good_meal/widgets/logo_widget.dart';
 
@@ -57,7 +56,7 @@ class WelcomeScreen extends StatelessWidget {
                         'easy to cook recipes. '
                         'Quality fresh local ingredients',
                         textAlign: TextAlign.center,
-                        style: h7,
+                        style: Styles.h3,
                       ),
                       SizedBox(
                         height: 15.0,
@@ -78,7 +77,7 @@ class WelcomeScreen extends StatelessWidget {
                         color: Styles.primaryColor,
                         child: Text(
                           "Create Account",
-                          style: Styles.h4,
+                          style: buttonText,
                         ),
                       ),
                       SizedBox(
@@ -86,18 +85,12 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                       RichText(
                         text: TextSpan(
-                            text: 'Already have an account?',
-                            style: TextStyle(
-                              color: Styles.darkColor,
-                              fontSize: 10.0,
-                            ),
+                            text: 'Already have an account?  ',
+                            style: alreadyHaveTxt,
                             children: <TextSpan>[
                               TextSpan(
                                   text: 'Login',
-                                  style: TextStyle(
-                                      color: Styles.darkColor,
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.bold),
+                                  style: textLoginLink,
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {})
                             ]),
