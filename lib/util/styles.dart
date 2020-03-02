@@ -29,6 +29,15 @@ import 'package:flutter/material.dart';
     color: Colors.white
 );
 
+const buttonSocialStyle = TextStyle(
+    fontFamily: 'OpenSans-Regular',
+    fontSize: 10.0,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.bold,
+    color: Colors.black
+);
+
+
   TextStyle   alreadyHaveTxt = TextStyle(
   fontFamily: 'OpenSans-Bold',
   fontSize: 8.0,

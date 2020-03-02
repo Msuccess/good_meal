@@ -7,7 +7,6 @@ import 'package:good_meal/widgets/logo_widget.dart';
 
 class SplashScreen extends StatefulWidget {
   static final String id = '/';
-
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }

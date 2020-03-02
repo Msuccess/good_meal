@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:good_meal/auth/register.dart';
 import 'package:good_meal/util/styles.dart';
 
 class ButtonWidget extends StatelessWidget {

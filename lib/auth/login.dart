@@ -1,6 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:good_meal/auth/password_reset.dart';
 import 'package:good_meal/auth/register.dart';
+import 'package:good_meal/service/os_type.dart';
 import 'package:good_meal/util/styles.dart';
 import 'package:good_meal/widgets/backbuttom_widget.dart';
 import 'package:good_meal/widgets/button_widget.dart';
@@ -14,7 +16,14 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool isSwitched = true;
+  bool isSwitched = false;
+  bool os;
+
+  @override
+  void initState() {
+    super.initState();
+    os = CheckOs().checkOsType();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +38,11 @@ class _LoginScreenState extends State<LoginScreen> {
               height: double.infinity,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/login_bg.jpg'),
+                  image: AssetImage('assets/images/stackbg.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
-              child: BackButtonWidget(os:'Android'),
+              child: BackButtonWidget(os: os),
             ),
           ),
           SizedBox(
@@ -121,7 +130,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           TextSpan(
                             text: 'Click Here',
                             style: textLoginLink,
-                            recognizer: TapGestureRecognizer()..onTap = () {},
+                            recognizer: TapGestureRecognizer()..onTap = () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PasswordRest(),
+                                ),
+                              );
+                            },
                           )
                         ],
                       ),
@@ -136,5 +152,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
-

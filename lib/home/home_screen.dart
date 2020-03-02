@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  static String id ='home_screen';
+  static String id = 'home_screen';
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -9,6 +10,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(child: Text('Home Works'),);
+    return Container(
+      child: Text('Home Works'),
+    );
   }
 }
