@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:good_meal/auth/register.dart';
+import 'package:good_meal/routes.dart';
 import 'package:good_meal/util/styles.dart';
+import 'package:good_meal/widgets/button_widget.dart';
 import 'package:good_meal/widgets/logo_widget.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -61,23 +63,18 @@ class WelcomeScreen extends StatelessWidget {
                       SizedBox(
                         height: 15.0,
                       ),
-                      RaisedButton(
-                        shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(18.0),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => RegisterScreen(),
-                            ),
-                          );
-                        },
-                        textColor: Colors.black,
-                        color: Styles.primaryColor,
-                        child: Text(
-                          "Create Account",
-                          style: buttonText,
+                      SizedBox(
+                        width: 180.0,
+                        child: ButtonWidget(
+                          buttonText: 'Create Account',
+                          onClick: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RegisterScreen(),
+                              ),
+                            );
+                          },
                         ),
                       ),
                       SizedBox(
@@ -89,10 +86,13 @@ class WelcomeScreen extends StatelessWidget {
                             style: alreadyHaveTxt,
                             children: <TextSpan>[
                               TextSpan(
-                                  text: 'Login',
-                                  style: textLoginLink,
-                                  recognizer: TapGestureRecognizer()
-                                    ..onTap = () {})
+                                text: 'Login',
+                                style: textLoginLink,
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Navigator.pushNamed(context, Routes.login);
+                                  },
+                              )
                             ]),
                       ),
                     ],

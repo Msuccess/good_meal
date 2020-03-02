@@ -21,12 +21,12 @@ import 'package:flutter/material.dart';
     color: Color(0xFF0F1518)
   );
 
- TextStyle buttonText = TextStyle(
+ const buttonTextStyle = TextStyle(
     fontFamily: 'OpenSans-Regular',
     fontSize: 10.0,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
-    color: Styles.darkColor
+    color: Colors.white
 );
 
   TextStyle   alreadyHaveTxt = TextStyle(
