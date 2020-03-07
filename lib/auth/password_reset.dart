@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:good_meal/auth/register.dart';
 import 'package:good_meal/service/os_type.dart';
@@ -36,11 +35,13 @@ class _PasswordRestState extends State<PasswordRest> {
               height: double.infinity,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/'),
+                  image: AssetImage('assets/images/stackbg.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
-              child: BackButtonWidget(),
+              child: BackButtonWidget(
+                os: os,
+              ),
             ),
           ),
           SizedBox(
@@ -53,16 +54,14 @@ class _PasswordRestState extends State<PasswordRest> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Welcome Back to', style: welcomeTxt),
+                  Text('Forgot Password?', style: welcomeTxt),
                   SizedBox(
                     height: 10.0,
                   ),
                   Text(
-                    'GOOD MEALS',
-                    style: TextStyle(
-                        fontFamily: 'PhosphateInline',
-                        fontSize: 25.0,
-                        color: Styles.primaryColor),
+                    'If you need help resetting you '
+                    'password we can help you by sending you a link to reset it.',
+                    style: forgetPasswordText,
                   ),
                   SizedBox(
                     height: 20.0,
@@ -72,19 +71,7 @@ class _PasswordRestState extends State<PasswordRest> {
                     textInputType: TextInputType.emailAddress,
                   ),
                   SizedBox(
-                    height: 10.0,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Rememcer Password',
-                        style: textLoginLink,
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15.0,
+                    height: 20.0,
                   ),
                   Align(
                     alignment: Alignment.center,
@@ -100,25 +87,6 @@ class _PasswordRestState extends State<PasswordRest> {
                             ),
                           );
                         },
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: RichText(
-                      text: TextSpan(
-                        text: 'Forgot Password?  ',
-                        style: alreadyHaveTxt,
-                        children: <TextSpan>[
-                          TextSpan(
-                            text: 'Click Here',
-                            style: textLoginLink,
-                            recognizer: TapGestureRecognizer()..onTap = () {},
-                          )
-                        ],
                       ),
                     ),
                   ),

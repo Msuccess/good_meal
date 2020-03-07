@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:good_meal/auth/confirm_screen.dart';
 import 'package:good_meal/auth/password_reset.dart';
-import 'package:good_meal/auth/register.dart';
 import 'package:good_meal/service/os_type.dart';
 import 'package:good_meal/util/styles.dart';
 import 'package:good_meal/widgets/backbuttom_widget.dart';
@@ -84,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        'Rememcer Password',
+                        'Remember Password',
                         style: textLoginLink,
                       ),
                       Switch(
@@ -110,7 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => RegisterScreen(),
+                              builder: (context) => ConfirmScreen(),
                             ),
                           );
                         },
