@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:good_meal/auth/register.dart';
 import 'package:good_meal/service/os_type.dart';
 import 'package:good_meal/util/styles.dart';
 import 'package:good_meal/widgets/backbuttom_widget.dart';
 import 'package:good_meal/widgets/button_widget.dart';
 import 'package:good_meal/widgets/customtextfield_widget.dart';
 
-class PasswordRest extends StatefulWidget {
+class PasswordReset extends StatefulWidget {
   static String id = "password_reset";
 
   @override
-  _PasswordRestState createState() => _PasswordRestState();
+  _PasswordResetState createState() => _PasswordResetState();
 }
 
-class _PasswordRestState extends State<PasswordRest> {
+class _PasswordResetState extends State<PasswordReset> {
   bool isSwitched = false;
   bool os;
 
@@ -80,11 +79,10 @@ class _PasswordRestState extends State<PasswordRest> {
                       child: ButtonWidget(
                         buttonText: 'Send',
                         onClick: () {
-                          Navigator.push(
+                          Navigator.pushNamed(
                             context,
-                            MaterialPageRoute(
-                              builder: (context) => RegisterScreen(),
-                            ),
+                            '/register',
+                            arguments: "arguments data",
                           );
                         },
                       ),

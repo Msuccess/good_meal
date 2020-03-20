@@ -1,7 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:good_meal/auth/confirm_screen.dart';
-import 'package:good_meal/auth/password_reset.dart';
 import 'package:good_meal/service/os_type.dart';
 import 'package:good_meal/util/styles.dart';
 import 'package:good_meal/widgets/backbuttom_widget.dart';
@@ -9,8 +7,6 @@ import 'package:good_meal/widgets/button_widget.dart';
 import 'package:good_meal/widgets/customtextfield_widget.dart';
 
 class LoginScreen extends StatefulWidget {
-  static String id = 'login_screen';
-
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -72,10 +68,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   CustomTextField(
                     labelText: 'Your Email',
                     textInputType: TextInputType.emailAddress,
+                    obscure: false,
                   ),
                   CustomTextField(
                     labelText: 'Password',
                     textInputType: TextInputType.visiblePassword,
+                    obscure: true,
                   ),
                   SizedBox(
                     height: 10.0,
@@ -107,12 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: ButtonWidget(
                         buttonText: 'Login',
                         onClick: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ConfirmScreen(),
-                            ),
-                          );
+                          Navigator.pushNamed(context, 'home');
                         },
                       ),
                     ),
@@ -130,14 +123,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           TextSpan(
                             text: 'Click Here',
                             style: textLoginLink,
-                            recognizer: TapGestureRecognizer()..onTap = () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => PasswordRest(),
-                                ),
-                              );
-                            },
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.pushNamed(context, 'passwordreset');
+                              },
                           )
                         ],
                       ),

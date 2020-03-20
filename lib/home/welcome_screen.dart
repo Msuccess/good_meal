@@ -1,15 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:good_meal/auth/register.dart';
-import 'package:good_meal/routes.dart';
 import 'package:good_meal/util/styles.dart';
 import 'package:good_meal/widgets/button_widget.dart';
 import 'package:good_meal/widgets/logo_widget.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  static String id = 'welcom_page';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,11 +64,9 @@ class WelcomeScreen extends StatelessWidget {
                         child: ButtonWidget(
                           buttonText: 'Create Account',
                           onClick: () {
-                            Navigator.push(
+                            Navigator.pushNamed(
                               context,
-                              MaterialPageRoute(
-                                builder: (context) => RegisterScreen(),
-                              ),
+                              '/register',
                             );
                           },
                         ),
@@ -90,7 +84,11 @@ class WelcomeScreen extends StatelessWidget {
                                 style: textLoginLink,
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
-                                    Navigator.pushNamed(context, Routes.login);
+                                    Navigator.pushNamed(
+                                      context,
+                                      '/login',
+                                      arguments: "arguments data",
+                                    );
                                   },
                               )
                             ]),

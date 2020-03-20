@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "949814754552",
+    "firebase_url": "https://good-meal-ee59a.firebaseio.com",
+    "project_id": "good-meal-ee59a",
+    "storage_bucket": "good-meal-ee59a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949814754552:android:2afbbd83db6f7be9cdcf0d",
+        "android_client_info": {
+          "package_name": "co.goodmealv1.good_meal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "949814754552-643mi1289ldqmnp9t9t2mclgo4ido6u3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2UnrLSILLPlvy8j04wmbR9Rdhb1jwdsI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "949814754552-643mi1289ldqmnp9t9t2mclgo4ido6u3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

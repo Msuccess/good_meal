@@ -1,12 +1,12 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:good_meal/routes.dart';
 import 'package:good_meal/util/styles.dart';
 import 'package:good_meal/widgets/logo_widget.dart';
 
+
 class SplashScreen extends StatefulWidget {
   static final String id = '/';
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -15,9 +15,16 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () {
-      Navigator.pushNamed(context, Routes.welcome);
-    });
+
+    Timer(
+      Duration(seconds: 3),
+      () {
+        Navigator.pushNamed(
+          context,
+          '/welcome',
+        );
+      },
+    );
   }
 
   @override
@@ -80,5 +87,3 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
-
-
