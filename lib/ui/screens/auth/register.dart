@@ -2,14 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:good_meal/service/auth-service.dart';
-import 'package:good_meal/service/os_type.dart';
-import 'package:good_meal/util/styles.dart';
-import 'package:good_meal/util/validator.dart';
-import 'package:good_meal/widgets/backbuttom_widget.dart';
-import 'package:good_meal/widgets/button_widget.dart';
-import 'package:good_meal/widgets/customtextfield_widget.dart';
-import 'package:good_meal/widgets/socialmediabutton_widget.dart';
+import 'package:good_meal/core/constants/styles.dart';
+import 'package:good_meal/core/providers/auth-service.dart';
+import 'package:good_meal/core/providers/os_type.dart';
+import 'package:good_meal/core/utils/validator.dart';
+import 'package:good_meal/ui/shared/widgets/backbuttom_widget.dart';
+import 'package:good_meal/ui/shared/widgets/button_widget.dart';
+import 'package:good_meal/ui/shared/widgets/customtextfield_widget.dart';
+import 'package:good_meal/ui/shared/widgets/socialmediabutton_widget.dart';
+
 
 class RegisterScreen extends StatefulWidget {
   static String id = 'register_page';
@@ -107,11 +108,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               buttonText: 'Create Account',
                               onClick: () {
                                 Navigator.pushNamed(context, '/home');
-//                              var useId =  Auth.signUp(emailInputController.text,
-//                                    passwordInputController.text);
-//                                if(useId != null){
-//                                  Navigator.pushNamed(context, '/home');
-//                                }
+                              var useId =  Auth.signUp(emailInputController.text,passwordInputController.text).catchError((err)=>{
+                                      print('Error')
+                              });
+                                if(useId != null){
+                                  Navigator.pushNamed(context, '/home');
+                                }
                               },
                             ),
                           ),

@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:good_meal/util/styles.dart';
+import 'package:good_meal/core/constants/styles.dart';
+import 'package:good_meal/ui/screens/auth/login.dart';
+import 'package:good_meal/ui/screens/auth/password_reset.dart';
+import 'package:good_meal/ui/screens/auth/register.dart';
+import 'package:good_meal/ui/screens/home/home_screen.dart';
+import 'package:good_meal/ui/screens/splash_screen.dart';
+import 'package:good_meal/ui/screens/welcome_screen.dart';
 import 'package:page_transition/page_transition.dart';
-import 'auth/login.dart';
-import 'auth/password_reset.dart';
-import 'auth/register.dart';
-import 'home/home_screen.dart';
-import 'home/splash_screen.dart';
-import 'home/welcome_screen.dart';
 
 void main() => runApp(MyApp());
-
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override

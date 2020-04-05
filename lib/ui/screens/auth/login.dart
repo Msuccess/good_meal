@@ -1,10 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:good_meal/service/os_type.dart';
-import 'package:good_meal/util/styles.dart';
-import 'package:good_meal/widgets/backbuttom_widget.dart';
-import 'package:good_meal/widgets/button_widget.dart';
-import 'package:good_meal/widgets/customtextfield_widget.dart';
+import 'package:good_meal/core/constants/styles.dart';
+import 'package:good_meal/core/providers/os_type.dart';
+import 'package:good_meal/ui/shared/widgets/backbuttom_widget.dart';
+import 'package:good_meal/ui/shared/widgets/button_widget.dart';
+import 'package:good_meal/ui/shared/widgets/customtextfield_widget.dart';
+
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -23,6 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

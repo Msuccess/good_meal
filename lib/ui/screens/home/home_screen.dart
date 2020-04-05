@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:good_meal/service/auth-service.dart';
+import 'package:good_meal/core/providers/auth-service.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -12,7 +12,8 @@ class _HomeScreenState extends State<HomeScreen> {
     // TODO: implement initState
     super.initState();
    var user = Auth.getCurrentFirebaseUser();
-   print(user);  }
+   print(user);  
+   }
   @override
   Widget build(BuildContext context) {
     return Container(
