@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:good_meal/service/auth-service.dart';
+import 'package:good_meal/core/services/auth/auth-service.dart';
 
 class HomeScreen extends StatefulWidget {
   @override

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:good_meal/auth/login.dart';
-import 'package:good_meal/util/styles.dart';
-import 'package:good_meal/widgets/button_widget.dart';
+import 'package:good_meal/core/constants/styles.dart';
+import 'package:good_meal/ui/screens/auth/login.dart';
+import 'package:good_meal/ui/shared/widgets/button_widget.dart';
 
 class ConfirmScreen extends StatelessWidget {
   static final String id = 'confirm_page';

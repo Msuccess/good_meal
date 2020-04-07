@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:good_meal/service/os_type.dart';
-import 'package:good_meal/util/styles.dart';
-import 'package:good_meal/widgets/backbuttom_widget.dart';
-import 'package:good_meal/widgets/button_widget.dart';
-import 'package:good_meal/widgets/customtextfield_widget.dart';
+import 'package:good_meal/core/constants/styles.dart';
+import 'package:good_meal/core/services/util/os_type.dart';
+import 'package:good_meal/ui/shared/widgets/backbuttom_widget.dart';
+import 'package:good_meal/ui/shared/widgets/button_widget.dart';
+import 'package:good_meal/ui/shared/widgets/customtextfield_widget.dart';
+
 
 class PasswordReset extends StatefulWidget {
   static String id = "password_reset";

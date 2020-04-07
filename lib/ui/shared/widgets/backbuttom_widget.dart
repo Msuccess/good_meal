@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:good_meal/util/styles.dart';
+import 'package:good_meal/core/constants/styles.dart';
 
 class BackButtonWidget extends StatelessWidget {
   const BackButtonWidget({@required this.os});

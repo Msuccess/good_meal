@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:good_meal/util/styles.dart';
-import 'package:good_meal/widgets/button_widget.dart';
-import 'package:good_meal/widgets/logo_widget.dart';
+import 'package:good_meal/core/constants/styles.dart';
+import 'package:good_meal/ui/shared/widgets/button_widget.dart';
+import 'package:good_meal/ui/shared/widgets/logo_widget.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override

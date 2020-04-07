@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:good_meal/util/styles.dart';
-import 'package:good_meal/widgets/logo_widget.dart';
+import 'package:good_meal/core/constants/styles.dart';
+import 'package:good_meal/ui/shared/widgets/logo_widget.dart';
 
 
 class SplashScreen extends StatefulWidget {
