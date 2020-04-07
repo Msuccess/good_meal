@@ -114,16 +114,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 child: ButtonWidget(
                                   buttonText: 'Create Account',
                                   onClick: ()  {
-
-                                    print(signUp(emailInputController.text, passwordInputController.text));
-                                    if(signUp(emailInputController.text, passwordInputController.text) != null){
-                                      print('Sign UP');
-                                    }else{
-                                      showAlert('Uable to register');
-                                    }
-
                                   }
-
                                 ),
                               ),
                             ),
@@ -186,12 +177,4 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ),
     );
   }
-}
-
-signUp(String email,String password ){
-  var userId =  Auth.signUp(email, password).catchError((error){
-    print(error);
-    showAlert(error);
-  });
-  return userId;
 }
