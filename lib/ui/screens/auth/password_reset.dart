@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:good_meal/core/constants/styles.dart';
-import 'package:good_meal/core/services/os_type.dart';
+import 'package:good_meal/core/services/util/os_type.dart';
 import 'package:good_meal/ui/shared/widgets/backbuttom_widget.dart';
 import 'package:good_meal/ui/shared/widgets/button_widget.dart';
 import 'package:good_meal/ui/shared/widgets/customtextfield_widget.dart';
