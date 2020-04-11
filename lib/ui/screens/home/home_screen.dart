@@ -1,23 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:good_meal/core/providers/auth-service.dart';
+import 'package:good_meal/core/models/user.dart';
+import 'package:good_meal/core/services/abstract_services/auth_base_service.dart';
+import 'package:good_meal/ui/screens/auth/login.dart';
+import 'package:provider/provider.dart';
 
-class HomeScreen extends StatefulWidget {
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-@override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-   var user = Auth.getCurrentFirebaseUser();
-   print(user);  
-   }
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('Home Works'),
+    final auth = Provider.of<AuthBase>(context);
+    return StreamBuilder<dynamic>(
+      stream: auth.onAuthStateChanged,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.active) {
+          User user = snapshot.data;
+
+          if (user == null) {
+            return LoginScreen();
+          } else {
+            return Scaffold(
+              body: Center(
+                child: Container(child: Text('Hello'),),
+              ),
+            );
+          }
+        }else{
+          return Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+        }
+      },
     );
   }
 }

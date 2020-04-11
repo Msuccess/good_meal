@@ -1,3 +1,4 @@
+
 class User {
   final String userID;
   final String firstName;
@@ -11,13 +12,12 @@ class User {
     this.profilePictureURL,
   });
 
-  Map<String, Object> toJson() {
+  Map<String, Object> toJson(User user) {
     return {
-      'userID': userID,
-      'firstName': firstName,
-      'email': email == null ? '' : email,
-      'profilePictureURL': profilePictureURL,
-      'appIdentifier': 'flutter-onboarding'
+      userID: user.userID,
+      firstName: user.firstName,
+      email: user.email == null ? '' : user.email,
+      profilePictureURL: user.profilePictureURL,
     };
   }
 

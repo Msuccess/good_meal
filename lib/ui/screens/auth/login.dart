@@ -1,11 +1,14 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:good_meal/core/constants/styles.dart';
-import 'package:good_meal/core/providers/os_type.dart';
+import 'package:good_meal/core/services/abstract_services/auth_base_service.dart';
+import 'package:good_meal/core/services/os_type.dart';
+import 'package:good_meal/core/utils/validator.dart';
+import 'package:good_meal/ui/dialogs/alert_dialog.dart';
 import 'package:good_meal/ui/shared/widgets/backbuttom_widget.dart';
 import 'package:good_meal/ui/shared/widgets/button_widget.dart';
 import 'package:good_meal/ui/shared/widgets/customtextfield_widget.dart';
-
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -13,18 +16,41 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool isSwitched = false;
-  bool os;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
-  @override
-  void initState() {
-    super.initState();
-    os = CheckOs().checkOsType();
+  String get _email => _emailController.text;
+  String get _password => _passwordController.text;
+  bool _submitted = false;
+  bool _isLoading = false;
+  bool isSwitched = false;
+
+  void _submit() async {
+    setState(() {
+      _submitted = true;
+      _isLoading = true;
+    });
+    try {
+      final auth = Provider.of<AuthBase>(context);
+      await auth.signIn(_email, _password);
+      Navigator.of(context).pop();
+    } catch (e) {
+      PlatformAlertDialog(
+        title: 'Sign in failed',
+        content: e.toString(),
+        defaultActionText: 'OK',
+      ).show(context);
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
+    }
   }
+
+  
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   fit: BoxFit.cover,
                 ),
               ),
-              child: BackButtonWidget(os: os),
+              child: BackButtonWidget(os: CheckOs().checkOsType()),
             ),
           ),
           SizedBox(
@@ -68,15 +94,19 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 20.0,
                   ),
                   CustomTextField(
-                    labelText: 'Your Email',
-                    textInputType: TextInputType.emailAddress,
-                    obscure: false,
-                  ),
+                      labelText: 'Your Email',
+                      textInputType: TextInputType.emailAddress,
+                      obscure: false,
+                      inputController: _emailController,
+                      validator: (value) => Validator.validateEmail(value),
+                      ),
                   CustomTextField(
-                    labelText: 'Password',
-                    textInputType: TextInputType.visiblePassword,
-                    obscure: true,
-                  ),
+                      labelText: 'Password',
+                      textInputType: TextInputType.visiblePassword,
+                      obscure: true,
+                      inputController: _passwordController,
+                       validator: (value) => Validator.validatePassword(value),
+                      ),
                   SizedBox(
                     height: 10.0,
                   ),
@@ -106,9 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: 200.0,
                       child: ButtonWidget(
                         buttonText: 'Login',
-                        onClick: () {
-                          Navigator.pushNamed(context, 'home');
-                        },
+                        onClick: () =>_submit(),
                       ),
                     ),
                   ),

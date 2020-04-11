@@ -3,8 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:good_meal/core/constants/styles.dart';
-import 'package:good_meal/core/providers/auth-service.dart';
-import 'package:good_meal/core/providers/os_type.dart';
+import 'package:good_meal/core/services/os_type.dart';
 import 'package:good_meal/core/utils/validator.dart';
 import 'package:good_meal/ui/shared/widgets/backbuttom_widget.dart';
 import 'package:good_meal/ui/shared/widgets/button_widget.dart';
@@ -106,15 +105,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             width: 200.0,
                             child: ButtonWidget(
                               buttonText: 'Create Account',
-                              onClick: () {
-                                Navigator.pushNamed(context, '/home');
-                              var useId =  Auth.signUp(emailInputController.text,passwordInputController.text).catchError((err)=>{
-                                      print('Error')
-                              });
-                                if(useId != null){
-                                  Navigator.pushNamed(context, '/home');
-                                }
-                              },
+                              onClick: () {}
                             ),
                           ),
                         ),
@@ -129,11 +120,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   icon: FontAwesomeIcons.facebookF,
                                   buttonText: 'Facebook',
                                   buttonColor: Color(0xFF3b5998),
+                                  onClick: (){},
                                 ),
                                 SocialMediaButton(
                                   icon: FontAwesomeIcons.google,
                                   buttonText: 'Google',
                                   buttonColor: Color(0xFFDD5144),
+                                  onClick: (){}
                                 ),
                               ],
                             ),

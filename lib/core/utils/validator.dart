@@ -20,4 +20,6 @@ class Validator {
   static bool validatePassword(String text) {
     return text.toString().length >= 6;
   }
+
+  
 }

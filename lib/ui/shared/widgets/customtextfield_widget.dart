@@ -27,6 +27,7 @@ class CustomTextField extends StatelessWidget {
       style: TextStyle(color: Color(0xFFD49E15)),
       decoration: InputDecoration(
         labelText: labelText,
+        errorText: errorMessage,
         labelStyle: inputLabel,
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(
@@ -39,6 +40,7 @@ class CustomTextField extends StatelessWidget {
       onSaved: (value) => saveText(value),
       obscureText: obscure,
       controller: inputController,
+      
     );
   }
 }

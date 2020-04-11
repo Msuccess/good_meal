@@ -1,6 +1,6 @@
 
 abstract class BaseProvider {
-//  AuthenticationProvider authenticationProvider;
+//  Auth authenticationProvider;
 
 //  BaseProvider({@required this.authenticationProvider});
 
