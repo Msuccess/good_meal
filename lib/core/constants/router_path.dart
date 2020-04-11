@@ -9,55 +9,48 @@ import 'package:good_meal/ui/screens/home/welcome_screen.dart';
 import 'package:page_transition/page_transition.dart';
 
 class RouterPath {
-  static Route<dynamic> generateRoute(RouteSettings settings) {
+   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/splash':
         return PageTransition(
           child: SplashScreen(),
           type: PageTransitionType.leftToRightWithFade,
-          settings: settings,
         );
         break;
       case '/welcome':
         return PageTransition(
           child: WelcomeScreen(),
           type: PageTransitionType.leftToRightWithFade,
-          settings: settings,
         );
         break;
       case '/home':
         return PageTransition(
           child: HomeScreen(),
           type: PageTransitionType.leftToRightWithFade,
-          settings: settings,
         );
         break;
       case '/login':
         return PageTransition(
           child: LoginScreen(),
           type: PageTransitionType.leftToRightWithFade,
-          settings: settings,
         );
         break;
       case '/passwordreset':
         return PageTransition(
           child: PasswordReset(),
           type: PageTransitionType.leftToRightWithFade,
-          settings: settings,
         );
         break;
       case '/register':
         return PageTransition(
           child: RegisterScreen(),
           type: PageTransitionType.leftToRightWithFade,
-          settings: settings,
         );
         break;
       case '/home':
         return PageTransition(
           child: HomeScreen(),
           type: PageTransitionType.leftToRightWithFade,
-          settings: settings,
         );
         break;
       default:

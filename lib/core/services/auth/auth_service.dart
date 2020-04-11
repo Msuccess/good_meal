@@ -1,19 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:good_meal/core/models/user_model.dart';
 import 'package:good_meal/core/services/abstract_services/auth_base_service.dart';
 
-class Auth implements AuthBase {
-  User _userFromFirebase(FirebaseUser user) {
-    if (user == null) {
-      return null;
-    }
-    return User(userID: user.uid);
-  }
-
-  @override
-  Stream<User> get onAuthStateChanged {
-    return FirebaseAuth.instance.onAuthStateChanged.map(_userFromFirebase);
-  }
+class AuthService implements AuthSerivceBase{
 
   @override
   Future<String> signIn(String email, String password) async {
@@ -45,4 +33,5 @@ class Auth implements AuthBase {
     final result = await FirebaseAuth.instance.signInAnonymously();
     return result.user;
   }
+
 }

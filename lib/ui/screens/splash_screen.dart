@@ -2,11 +2,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:good_meal/core/constants/styles.dart';
 import 'package:good_meal/ui/shared/widgets/logo_widget.dart';
-<<<<<<< HEAD:lib/ui/screens/splash_screen.dart
-
-=======
->>>>>>> a1a8cdb636e5908521afe1bea1e1e85c532b1bb2:lib/ui/screens/home/splash_screen.dart
-
 
 class SplashScreen extends StatefulWidget {
   static final String id = '/';

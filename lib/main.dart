@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:good_meal/core/constants/router_path.dart';
 import 'package:good_meal/core/constants/styles.dart';
 import 'package:good_meal/provider_setup.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
       theme: Styles.themeData,
       initialRoute: '/splash',
-      onGenerateRoute: Router.generateRoute,
+      onGenerateRoute: RouterPath.generateRoute
       ),
     );
   }

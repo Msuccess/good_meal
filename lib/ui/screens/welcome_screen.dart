@@ -3,10 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:good_meal/core/constants/styles.dart';
 import 'package:good_meal/ui/shared/widgets/button_widget.dart';
 import 'package:good_meal/ui/shared/widgets/logo_widget.dart';
-<<<<<<< HEAD:lib/ui/screens/welcome_screen.dart
-
-=======
->>>>>>> a1a8cdb636e5908521afe1bea1e1e85c532b1bb2:lib/ui/screens/home/welcome_screen.dart
 
 class WelcomeScreen extends StatelessWidget {
   @override

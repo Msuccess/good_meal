@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
-import 'package:good_meal/core/services/auth/auth-service.dart';
+import 'package:good_meal/core/services/abstract_services/auth_base_service.dart';
 
 class LoginViewModel extends ChangeNotifier {
-  AuthSerivce _auth;
+  AuthSerivceBase _auth;
   bool _busy;
 
   LoginViewModel({
-    @required AuthSerivce auth,
+    @required AuthSerivceBase auth,
   }) : _auth = auth;
 
   bool get busy => _busy;
