@@ -2,14 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:good_meal/core/constants/router_path.dart';
 import 'package:good_meal/core/constants/styles.dart';
-<<<<<<< HEAD
 import 'package:good_meal/core/enums/view_state.dart';
-=======
-import 'package:good_meal/core/services/abstract_services/auth_base_service.dart';
-import 'package:good_meal/core/services/os_type.dart';
-import 'package:good_meal/core/utils/validator.dart';
-import 'package:good_meal/ui/dialogs/alert_dialog.dart';
->>>>>>> 0e9a92e311bfe50c1e2d2280987243d82e4def82
 import 'package:good_meal/ui/shared/widgets/backbuttom_widget.dart';
 import 'package:good_meal/ui/shared/widgets/button_widget.dart';
 import 'package:good_meal/ui/shared/widgets/customtextfield_widget.dart';
@@ -56,7 +49,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     return ChangeNotifierProvider<LoginViewModel>.value(
     value: LoginViewModel(
       auth: Provider.of(context)
@@ -68,34 +60,6 @@ class _LoginScreenState extends State<LoginScreen> {
           child: ConstrainedBox(
             constraints:  BoxConstraints(maxHeight: MediaQuery.of(context).size.height),
             child: Column(
-=======
-    return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Container(
-              width: double.infinity,
-              height: double.infinity,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/stackbg.jpg'),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              child: BackButtonWidget(os: CheckOs().checkOsType()),
-            ),
-          ),
-          SizedBox(
-            height: 20.0,
-          ),
-          Expanded(
-            flex: 2,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30.0),
-              child: Column(
->>>>>>> 0e9a92e311bfe50c1e2d2280987243d82e4def82
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text('Welcome Back to', style: welcomeTxt),
@@ -162,7 +126,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: 10.0,
                   ),
-<<<<<<< HEAD
                   Flexible(
                     flex: 2,
                     child: Padding(
@@ -261,23 +224,6 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
                           ),
-=======
-                  Align(
-                    alignment: Alignment.center,
-                    child: RichText(
-                      text: TextSpan(
-                        text: 'Forgot Password?  ',
-                        style: alreadyHaveTxt,
-                        children: <TextSpan>[
-                          TextSpan(
-                            text: 'Click Here',
-                            style: textLoginLink,
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                Navigator.pushNamed(context, 'passwordreset');
-                              },
-                          )
->>>>>>> 0e9a92e311bfe50c1e2d2280987243d82e4def82
                         ],
                       ),
                     ),
