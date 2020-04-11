@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:good_meal/core/constants/router.dart';
 import 'package:good_meal/core/constants/styles.dart';
-import 'package:good_meal/locator.dart';
+import 'package:good_meal/provider_setup.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  setupLocator();
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
+
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiProvider(
+      providers: providers,
+      child: MaterialApp(
       theme: Styles.themeData,
       initialRoute: '/splash',
       onGenerateRoute: Router.generateRoute,
+      ),
     );
   }
 }

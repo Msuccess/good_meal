@@ -8,7 +8,7 @@ import 'package:good_meal/ui/screens/home/splash_screen.dart';
 import 'package:good_meal/ui/screens/home/welcome_screen.dart';
 import 'package:page_transition/page_transition.dart';
 
-class Router {
+class RouterPath {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/splash':
@@ -64,7 +64,7 @@ class Router {
         return MaterialPageRoute(
           builder: (_) => Scaffold(
             body: Center(
-              child: Text('No defie for ${settings.name}'),
+              child: Text('No Route define for ${settings.name}'),
             ),
           ),
         );

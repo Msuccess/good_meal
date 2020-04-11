@@ -1,8 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:good_meal/core/constants/router_path.dart';
 import 'package:good_meal/core/constants/styles.dart';
 import 'package:good_meal/core/enums/view_state.dart';
-import 'package:good_meal/locator.dart';
 import 'package:good_meal/ui/shared/widgets/backbuttom_widget.dart';
 import 'package:good_meal/ui/shared/widgets/button_widget.dart';
 import 'package:good_meal/ui/shared/widgets/customtextfield_widget.dart';
@@ -32,8 +32,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<LoginViewModel>(
-      create: (context) => locator<LoginViewModel>(),
+    return ChangeNotifierProvider<LoginViewModel>.value(
+    value: LoginViewModel(
+      auth: Provider.of(context)
+    ),
       child: Consumer<LoginViewModel>(
         builder: (context,model,child) =>
         Scaffold(
@@ -116,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             height: 15.0,
                           ),
 
-                          model.state == ViewState.Busy 
+                          model.busy 
                           ? CircularProgressIndicator() 
                           :Align(
                             alignment: Alignment.center,
@@ -129,7 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       _controllerEmail.text,
                                       _controllerPassword.text,context);
                                   if (userId != null) {
-                                    Navigator.pushNamed(context, '/home');
+                                    Navigator.pushNamed(context,RouterPath.generateRoute(new RouteSettings({})));
                                   }
                                 },
                               ),
@@ -151,7 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     recognizer: TapGestureRecognizer()
                                       ..onTap = () {
                                         Navigator.pushNamed(
-                                            context, 'passwordreset');
+                                            context, '/passwordreset');
                                       },
                                   )
                                 ],
