@@ -6,17 +6,26 @@ import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
 
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: providers,
-      child: MaterialApp(
-      theme: Styles.themeData,
-      initialRoute: '/splash',
-      onGenerateRoute: RouterPath.generateRoute
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('data'),
+      ),
+      body: Center(
+        child: Container(
+          child: Text('data'),
+        ),
       ),
     );
+    // return MultiProvider(
+    //   providers: providers,
+    //   child: MaterialApp(
+    //   theme: Styles.themeData,
+    //   initialRoute: '/splash',
+    //   onGenerateRoute: RouterPath.generateRoute
+    //   ),
+    // );
   }
 }
