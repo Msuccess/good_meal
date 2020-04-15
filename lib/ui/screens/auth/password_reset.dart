@@ -39,9 +39,7 @@ class _PasswordResetState extends State<PasswordReset> {
                   fit: BoxFit.cover,
                 ),
               ),
-              child: BackButtonWidget(
-                os: os,
-              ),
+              child: BackButtonWidget(),
             ),
           ),
           SizedBox(

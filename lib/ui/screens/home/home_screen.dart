@@ -6,14 +6,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-@override
+  @override
   void initState() {
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('Home Works'),
+    return Scaffold(
+      body: Center(
+        child: Text("Home"),
+      ),
     );
   }
 }

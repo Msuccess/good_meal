@@ -18,7 +18,7 @@ class Validator {
   }
 
   static bool validatePassword(String text) {
-    return text.toString().length >= 6;
+    return text.toString().length >= 8;
   }
 
   

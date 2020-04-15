@@ -1,34 +1,26 @@
 import 'package:flutter/cupertino.dart';
-import 'package:good_meal/core/services/abstract_services/auth_base_service.dart';
+import 'package:good_meal/core/services/auth/auth_service.dart';
+import 'package:good_meal/core/view_models/base_view_model.dart';
 
-class LoginViewModel extends ChangeNotifier {
-  AuthSerivceBase _auth;
-  bool _busy;
+class LoginViewModel extends BaseViewModel {
+  AuthService _auth;
+  bool isSwitched = false;
 
   LoginViewModel({
-    @required AuthSerivceBase auth,
+    @required AuthService auth,
   }) : _auth = auth;
 
-  bool get busy => _busy;
-
-  void setBusy(bool value) {
-    _busy = value;
-    notifyListeners();
-  }
-
-  Future<String> login(
+  Future login(
       String email, String password, BuildContext context) async {
     setBusy(true);
     try {
+      
       var result = await _auth.signIn(email, password);
       setBusy(false);
-      return result;
+      if (result != null || result == '') {}
+
     } catch (e) {
       setBusy(false);
-      // _alert.showSnackBar(context, e.toString());
-      print(e.toString());
-
-      return e.toString();
     }
   }
 }
