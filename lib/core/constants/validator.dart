@@ -1,5 +1,6 @@
 class Validator {
   static bool validateName(String text) {
+    print(text);
     return text
         .contains(new RegExp(r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"));
   }
@@ -21,5 +22,7 @@ class Validator {
     return text.toString().length >= 6;
   }
 
-  
+  static bool notEmptySting(String value) {
+    return value.isNotEmpty;
+  }
 }

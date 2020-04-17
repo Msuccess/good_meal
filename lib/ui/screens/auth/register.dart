@@ -3,7 +3,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:good_meal/core/constants/styles.dart';
-import 'package:good_meal/core/constants/validator.dart';
 import 'package:good_meal/core/view_models/screens/register_view_model.dart';
 import 'package:good_meal/ui/screens/base_widget.dart';
 import 'package:good_meal/ui/shared/widgets/backbuttom_widget.dart';
@@ -24,6 +23,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final GlobalKey<FormState> _registerFormKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  String userId = '';
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +54,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       child: BackButtonWidget(),
                     ),
                   ),
+                  model.busy ? LinearProgressIndicator() : Container(),
                   SizedBox(
                     height: 20.0,
                   ),
@@ -80,22 +81,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             SizedBox(
                               height: 20.0,
                             ),
-                            CustomTextField(
+                            EmailTextField(
                               labelText: 'Your Email',
                               textInputType: TextInputType.emailAddress,
                               inputController: _emailController,
-                              validator: (value) {
-                                Validator.validateEmail(value);
-                                Validator.validateName(value);
-                              },
                               obscure: false,
                             ),
-                            CustomTextField(
+                            PasswordTextField(
                               labelText: 'Password',
                               textInputType: TextInputType.visiblePassword,
                               inputController: _passwordController,
-                              validator: (value) =>
-                                  Validator.validatePassword(value),
                               obscure: true,
                             ),
                             SizedBox(
@@ -108,17 +103,30 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   child: SizedBox(
                                     width: 200.0,
                                     child: ButtonWidget(
+                                        busy: model.busy,
                                         buttonText: 'Create Account',
                                         onClick: () async {
-                                          if (_registerFormKey.currentState
+                                          if (!_registerFormKey.currentState
                                               .validate()) {
-                                            await model.sigUp(
-                                                _emailController.text.trim(),
-                                                _passwordController.text.trim(),
-                                                context);
+                                            return;
+                                          }
+                                          await model.sigUp(
+                                              _emailController.text.trim(),
+                                              _passwordController.text.trim(),
+                                              context);
+
+                                          if (model.userId != null) {
+                                            Navigator.pushNamed(
+                                              context,
+                                              '/login',
+                                              arguments: "arguments data",
+                                            );
                                           }
                                         }),
                                   ),
+                                ),
+                                SizedBox(
+                                  height: 15,
                                 ),
                                 Align(
                                   alignment: Alignment.center,

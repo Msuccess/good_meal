@@ -62,6 +62,7 @@ class WelcomeScreen extends StatelessWidget {
                         width: 180.0,
                         child: ButtonWidget(
                           buttonText: 'Create Account',
+                          busy: false,
                           onClick: () {
                             Navigator.pushNamed(
                               context,

@@ -1,47 +1,80 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:async';
 
-class AuthService {
-  var _userController = StreamController<FirebaseUser>();
+import 'package:flutter/services.dart';
 
-  Stream<FirebaseUser> get user => _userController.stream;
+class AuthService {
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   Future<String> signIn(String email, String password) async {
-    final user = (await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: email, password: password)) as FirebaseUser;
-
-    if (user != null) {
-      _userController.add(user);
+    try {
+      AuthResult result = await _firebaseAuth.signInWithEmailAndPassword(
+          email: email, password: password);
+      FirebaseUser user = result.user;
+      return user.uid;
+    } catch (e) {
+      throw PlatformException(message: e.message, code: e.code);
     }
-
-    return user.uid;
   }
 
-  Future<dynamic> signUp(String email, String password) async {
+  Future<FirebaseUser> getCurrentUser() async {
     try {
-      final user = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password).then((e){
-print("Got=>>>>>>>>:$e");
-          });
-      print("Got=>>>>>>>>:$user");
+      FirebaseUser user = await _firebaseAuth.currentUser();
       return user;
     } catch (e) {
-      print("Error=>>>>>>>>:$e");
-      return null;
+      throw PlatformException(message: e.message, code: e.code);
+    }
+  }
+
+  Future<String> signUp(String email, String password) async {
+    try {
+      AuthResult result = await _firebaseAuth.createUserWithEmailAndPassword(
+          email: email, password: password);
+
+      FirebaseUser user = result?.user;
+      return user?.uid;
+    } catch (e) {
+      throw PlatformException(message: e.message, code: e.code);
     }
   }
 
   Future<void> signOut() async {
-    return FirebaseAuth.instance.signOut();
+    return _firebaseAuth.signOut();
   }
 
   Future<FirebaseUser> getCurrentFirebaseUser() async {
-    final user = await FirebaseAuth.instance.currentUser();
-    return user;
+    try {
+      final user = await FirebaseAuth.instance.currentUser();
+      return user;
+    } catch (e) {
+      throw PlatformException(message: e.message, code: e.code);
+    }
   }
 
   Future<FirebaseUser> signInAnonymously() async {
-    final result = await FirebaseAuth.instance.signInAnonymously();
-    return result.user;
+    try {
+      final result = await FirebaseAuth.instance.signInAnonymously();
+      return result.user;
+    } catch (e) {
+      throw PlatformException(message: e.message, code: e.code);
+    }
+  }
+
+  Future<void> sendEmailVerification() async {
+    try {
+      FirebaseUser user = await _firebaseAuth.currentUser();
+      user.sendEmailVerification();
+    } catch (e) {
+      throw PlatformException(message: e.message, code: e.code);
+    }
+  }
+
+  Future<bool> isEmailVerified() async {
+    try {
+      FirebaseUser user = await _firebaseAuth.currentUser();
+      return user.isEmailVerified;
+    } catch (e) {
+      throw PlatformException(message: e.message, code: e.code);
+    }
   }
 }
