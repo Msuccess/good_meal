@@ -6,12 +6,12 @@ import 'package:flutter/services.dart';
 class AuthService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-  Future<String> signIn(String email, String password) async {
+  Future<FirebaseUser> signIn(String email, String password) async {
     try {
       AuthResult result = await _firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
       FirebaseUser user = result.user;
-      return user.uid;
+      return user;
     } catch (e) {
       throw PlatformException(message: e.message, code: e.code);
     }

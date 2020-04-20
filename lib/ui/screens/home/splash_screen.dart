@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:good_meal/core/constants/router_path.dart';
 import 'package:good_meal/core/constants/styles.dart';
 import 'package:good_meal/ui/shared/widgets/logo_widget.dart';
 
@@ -20,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
       () {
         Navigator.pushNamed(
           context,
-          '/welcome',
+          RoutePaths.Welcome,
         );
       },
     );

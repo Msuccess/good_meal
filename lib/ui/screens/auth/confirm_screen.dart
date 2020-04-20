@@ -30,7 +30,7 @@ class ConfirmScreen extends StatelessWidget {
               height: 10.0,
             ),
             Text(
-              'You have successfully changed '
+              'You have successfully changed'
               'your password Please use your new password when logging in.',
               style: TextStyle(
                 fontFamily: 'OpenSans-Regular',

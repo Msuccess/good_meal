@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:good_meal/core/constants/router_path.dart';
 import 'package:good_meal/core/constants/styles.dart';
 import 'package:good_meal/core/view_models/screens/register_view_model.dart';
 import 'package:good_meal/ui/screens/base_widget.dart';
@@ -12,9 +13,6 @@ import 'package:good_meal/ui/shared/widgets/socialmediabutton_widget.dart';
 import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatefulWidget {
-  static String id = 'register_page';
-  final myController = TextEditingController();
-
   @override
   _RegisterScreenState createState() => _RegisterScreenState();
 }
@@ -116,11 +114,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                               context);
 
                                           if (model.userId != null) {
-                                            Navigator.pushNamed(
-                                              context,
-                                              '/login',
-                                              arguments: "arguments data",
-                                            );
+                                            Navigator.pushNamed(context, RoutePaths.Login);
                                           }
                                         }),
                                   ),

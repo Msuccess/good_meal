@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:good_meal/core/constants/router_path.dart';
 import 'package:good_meal/core/constants/styles.dart';
 import 'package:good_meal/ui/shared/widgets/button_widget.dart';
 import 'package:good_meal/ui/shared/widgets/logo_widget.dart';
@@ -64,10 +65,14 @@ class WelcomeScreen extends StatelessWidget {
                           buttonText: 'Create Account',
                           busy: false,
                           onClick: () {
-                            Navigator.pushNamed(
-                              context,
-                              '/register',
-                            );
+                            // Navigator.pushNamed(
+                            //   context,
+                            //   RoutePaths.Register,
+                            // );
+                             Navigator.pushReplacementNamed(
+                                        context,
+                                        RoutePaths.Home,
+                                      );
                           },
                         ),
                       ),
@@ -86,8 +91,7 @@ class WelcomeScreen extends StatelessWidget {
                                   ..onTap = () {
                                     Navigator.pushNamed(
                                       context,
-                                      '/login',
-                                      arguments: "arguments data",
+                                      RoutePaths.Login,
                                     );
                                   },
                               )

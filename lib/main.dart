@@ -11,13 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OKToast(
-          child: MultiProvider(
+      child: MultiProvider(
         providers: providers,
         child: MaterialApp(
-        theme: Styles.themeData,
-        initialRoute: '/splash',
-        onGenerateRoute: RouterPath.generateRoute
-        ),
+            theme: Styles.themeData,
+            initialRoute: RoutePaths.Splash,
+            onGenerateRoute: RouterPath.generateRoute),
       ),
     );
   }

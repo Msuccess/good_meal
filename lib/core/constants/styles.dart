@@ -61,6 +61,20 @@ const inputLabel = TextStyle(
   color: Color(0xFF0F1518),
 );
 
+const headerStyle = TextStyle(
+  fontFamily: 'OpenSans-Bold',
+  fontSize: 12.0,
+  fontStyle: FontStyle.normal,
+  color: Color(0xFFD49E15),
+);
+
+const titleStyle = TextStyle(
+  fontFamily: 'OpenSans-Bold',
+  fontSize: 12.0,
+  fontStyle: FontStyle.normal,
+  color: Color(0xFF0F1518),
+);
+
 class Styles {
   Styles();
 
@@ -68,12 +82,12 @@ class Styles {
       primaryColor: primaryColor,
       accentColor: secondaryColor,
       hintColor: primaryColor);
-
   static var primaryColor = Color(0xFFD49E15);
   static var secondaryColor = Color(0xFFDAB14A);
   static var brandColor = Color(0xFFCDCDCD);
   static var defaultColor = Colors.white;
   static var darkColor = Color(0xFF0F1518);
+  static const inactiveColor = Color(0xFFCDCDCD);
 
   static TextStyle h1 = TextStyle(
       fontFamily: 'OpenSans-Regular',

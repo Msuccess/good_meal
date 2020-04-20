@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:good_meal/core/constants/router_path.dart';
 import 'package:good_meal/core/constants/styles.dart';
 import 'package:good_meal/core/view_models/screens/login_view_model.dart';
 import 'package:good_meal/ui/screens/base_widget.dart';
@@ -14,16 +16,18 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final GlobalKey<FormState> _loginFormKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final GlobalKey<FormState> _loginFormKey = GlobalKey<FormState>();
+  FirebaseUser user;
 
   @override
   Widget build(BuildContext context) {
     return BaseWidget<LoginViewModel>(
       model: LoginViewModel(
-        auth: Provider.of(context),),
-      builder: (context, model, child) {
+        auth: Provider.of(context),
+      ),
+      builder: (BuildContext context, LoginViewModel model, Widget child) {
         return Scaffold(
           body: SingleChildScrollView(
             child: ConstrainedBox(
@@ -46,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: BackButtonWidget(),
                     ),
                   ),
-                  model.busy ? LinearProgressIndicator() : Container,
+                  model.busy ? LinearProgressIndicator() : Container(),
                   SizedBox(
                     height: 20.0,
                   ),
@@ -112,16 +116,23 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: SizedBox(
                                 width: 200.0,
                                 child: ButtonWidget(
+                                  busy: model.busy,
                                   buttonText: 'Login',
                                   onClick: () async {
                                     if (!_loginFormKey.currentState
                                         .validate()) {
                                       return;
                                     }
-                                    await model.login(
-                                        _emailController.text,
-                                        _passwordController.text,
-                                        context);
+                                    await model.login(_emailController.text,
+                                        _passwordController.text, context);
+
+                                    if (model.user != null) {
+                                      Navigator.pushReplacementNamed(
+                                        context,
+                                        RoutePaths.Home,
+                                        arguments: model.user,
+                                      );
+                                    }
                                   },
                                 ),
                               ),
