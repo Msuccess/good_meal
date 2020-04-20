@@ -62,17 +62,25 @@ const inputLabel = TextStyle(
 );
 
 const headerStyle = TextStyle(
-  fontFamily: 'OpenSans-Bold',
-  fontSize: 12.0,
+  fontFamily: 'PhosphateInline',
+  fontSize: 20.0,
   fontStyle: FontStyle.normal,
+  fontWeight: FontWeight.bold,
   color: Color(0xFFD49E15),
 );
 
 const titleStyle = TextStyle(
   fontFamily: 'OpenSans-Bold',
-  fontSize: 12.0,
+  fontSize: 25.0,
   fontStyle: FontStyle.normal,
-  color: Color(0xFF0F1518),
+  color: Color(0xFFD49E15),
+);
+
+const subtitleStyle = TextStyle(
+  fontFamily: 'OpenSans-Bold',
+  fontSize: 10.0,
+  fontStyle: FontStyle.normal,
+  color: Color(0xFFFFFFFF),
 );
 
 class Styles {

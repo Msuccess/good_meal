@@ -10,11 +10,20 @@ class HeaderWidget extends StatelessWidget {
     return Container(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-        child: Center(
-          child: Text(
-            headerText,
-            style: headerStyle,
-          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Container(),
+            Text(
+              headerText,
+              style: headerStyle,
+            ),
+            Icon(
+              Icons.more_horiz,
+              color: Styles.primaryColor,
+              size: 30,
+            )
+          ],
         ),
       ),
     );
