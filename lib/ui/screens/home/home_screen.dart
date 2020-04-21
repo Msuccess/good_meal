@@ -22,11 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
           bottomNavigationBar: ButtomTabBar(
             index: model.selectedIndex,
             onItemTap: (value) {
-              setState(
-                () {
-                  model.selectedIndex = value;
-                },
-              );
+              model.onItemTap(value);
             },
           ),
         );

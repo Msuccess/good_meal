@@ -4,23 +4,24 @@ import 'package:good_meal/ui/screens/home/pages/bookmark_screen.dart';
 import 'package:good_meal/ui/screens/home/pages/layers_screen.dart';
 import 'package:good_meal/ui/screens/home/pages/profile_screen.dart';
 import 'package:good_meal/ui/screens/home/pages/search_screen.dart';
+import 'package:good_meal/ui/shared/widgets/animatedindex_widget_state.dart';
 
 class HomeViewModel extends BaseViewModel {
   int _selectedIndex = 0;
-  
+
   int get selectedIndex => _selectedIndex;
-  set selectedIndex(value) =>_selectedIndex = value;
-  
+
+  void onItemTap(index) {
+    _selectedIndex = index;
+    notifyListeners();
+  }
 
   Widget buildPage(_selectedIndex) {
-    List<Widget> _widgetOptions = <Widget>[
+    return AnimatedIndexedStack(index: _selectedIndex, children: <Widget>[
       LayersScreen(),
       SearchScreen(),
       BookMarkScreen(),
       ProfileScreen()
-    ];
-
-    return _widgetOptions.elementAt(selectedIndex);
+    ]);
   }
-
 }

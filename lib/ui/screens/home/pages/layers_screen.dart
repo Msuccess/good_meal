@@ -1,6 +1,17 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:good_meal/core/constants/styles.dart';
+import 'package:good_meal/ui/shared/custom_widget/starrating_widget.dart';
+import 'package:good_meal/ui/shared/widgets/banner_widget.dart';
+import 'package:good_meal/ui/shared/widgets/card_widget.dart';
 import 'package:good_meal/ui/shared/widgets/header_widget.dart';
+
+var bannerItems = ['Bugger', 'Cheease Chilly', 'Pizza'];
+var bannerImages = [
+  "assets/images/pancakes.jpg",
+  "assets/images/piza.jpg",
+  "assets/images/vegetables.jpg"
+];
 
 class LayersScreen extends StatelessWidget {
   @override
@@ -15,10 +26,46 @@ class LayersScreen extends StatelessWidget {
         child: SafeArea(
           child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 HeaderWidget(headerText: 'GOOD MEALS'),
-                BannerWidget(),
+                BannerWidget(items: bannerItems, images: bannerImages),
+                SizedBox(
+                  height: 30.0,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 25.0),
+                  child: Text(
+                    'Healthy Vegan Life',
+                    style: h2,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 10.0),
+                  height: screenHeight / 3.6,
+                  child: ListView(
+                    physics: BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    dragStartBehavior: DragStartBehavior.start,
+                    padding: const EdgeInsets.all(4.0),
+                    children: <Widget>[
+                      MostLikedCard(),
+                      MostLikedCard(),
+                      MostLikedCard(),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 25.0),
+                  child: Text(
+                    'Popular Recipes',
+                    style: h2,
+                  ),
+                ),
+                TileCardWidget(),
+                Divider(),
+                TileCardWidget(),
+                Divider(),
               ],
             ),
           ),
@@ -28,114 +75,57 @@ class LayersScreen extends StatelessWidget {
   }
 }
 
-var bannerItems = ['Bugger', 'Cheease Chilly', 'Pizza'];
-var bannerImages = [
-  "assets/images/pancakes.jpg",
-  "assets/images/piza.jpg",
-  "assets/images/vegetables.jpg"
-];
+class TileCardWidget extends StatelessWidget {
+  const TileCardWidget({
+    Key key,
+  }) : super(key: key);
 
-class BannerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var screenWidth = MediaQuery.of(context).size.width;
-    var screenHeight = MediaQuery.of(context).size.height;
-
-    PageController controller = new PageController(
-      initialPage: 1,
-      viewportFraction: 0.8,
-    );
-
-    List<Widget> banners = new List<Widget>();
-
-    for (var i = 0; i < bannerItems.length; i++) {
-      var bannerView = Padding(
-        padding: EdgeInsets.all(10.0),
-        child: Container(
-          decoration: BoxDecoration(),
-          child: Stack(
-            fit: StackFit.expand,
-            children: <Widget>[
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20.0),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black38,
-                      offset: Offset(
-                        2.0,
-                        2.0,
-                      ),
-                      blurRadius: 5.0,
-                      spreadRadius: 1.0,
-                    ),
-                  ],
-                ),
-              ),
-              ClipRRect(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(20.0),
-                ),
-                child: Image.asset(
-                  bannerImages[i],
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  ),
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Colors.black,
-                      Colors.transparent,
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      'Family Vegan',
-                      style: titleStyle,
-                    ),
-                    Text(
-                      'Salad Tips',
-                      style: titleStyle,
-                    ),
-                    SizedBox(height: 10,),
-                    Text(
-                      '10 Family Salad Recepes',
-                      style: subtitleStyle,
-                    )
-                  ],
-                ),
-              )
-            ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: ListTile(
+        leading: Container(
+          height: 200,
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10.0),
+            ),
+            child: Image.asset(
+              'assets/images/piza.jpg',
+              fit: BoxFit.cover,
+            ),
           ),
         ),
-      );
-
-      banners.add(bannerView);
-    }
-
-    return Container(
-      width: screenWidth,
-      height: screenHeight * 9 / 16,
-      child: PageView(
-        physics: ClampingScrollPhysics(),
-        controller: controller,
-        scrollDirection: Axis.horizontal,
-        children: banners,
+        title: Text(
+          'Chicken Salad',
+          style: foodHeader,
+        ),
+        contentPadding: EdgeInsets.all(10.0),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Text('Special Diets'),
+            ),
+             StarRating(
+                filledStar: Icons.star,
+                unfilledStar: Icons.star_border,
+                value: 3,
+                onChanged: null,
+                color: Styles.primaryColor,
+              )
+          ],
+        ),
+        trailing: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: <Widget>[
+            Text('7.2K', style: h2),
+            Text('Cooked', style: subTileStyle),
+          ],
+        ),
+        isThreeLine: true,
       ),
     );
   }

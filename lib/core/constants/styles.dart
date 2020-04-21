@@ -7,16 +7,19 @@ const logoText = TextStyle(
     fontStyle: FontStyle.normal,
     //    fontWeight: FontWeight.w300,
     color: Colors.white);
+
 const h7 = TextStyle(
     fontFamily: 'OpenSans-Bold',
     fontStyle: FontStyle.normal,
     height: 1.4,
     fontSize: 12.0);
+
 const textLoginLink = TextStyle(
-    fontFamily: 'OpenSans-Bold',
-    fontSize: 10.0,
-    fontStyle: FontStyle.normal,
-    color: Color(0xFF0F1518));
+  fontFamily: 'OpenSans-Bold',
+  fontSize: 10.0,
+  fontStyle: FontStyle.normal,
+  color: Color(0xFF0F1518),
+);
 
 const buttonTextStyle = TextStyle(
     fontFamily: 'OpenSans-Regular',
@@ -83,13 +86,52 @@ const subtitleStyle = TextStyle(
   color: Color(0xFFFFFFFF),
 );
 
+const foodHeader = TextStyle(
+  fontFamily: 'OpenSans-Bold',
+  fontSize: 18.0,
+  fontStyle: FontStyle.normal,
+  fontWeight: FontWeight.w700,
+  color: Color(0xFF0F1518),
+);
+
+const subTileStyle = TextStyle(
+  fontFamily: 'OpenSans-Bold',
+  fontSize: 12.0,
+  fontStyle: FontStyle.normal,
+  fontWeight: FontWeight.w600,
+  color: Color(0xFFCDCDCD),
+);
+
+const h2 = TextStyle(
+  fontFamily: 'OpenSans-Bold',
+  fontSize: 18.0,
+  fontStyle: FontStyle.normal,
+  fontWeight: FontWeight.w800,
+  color: Color(0xFF0F1518),
+);
+
+const h3 = TextStyle(
+  fontFamily: 'OpenSans-Regular',
+  fontSize: 20.0,
+  fontStyle: FontStyle.normal,
+  fontWeight: FontWeight.bold,
+  color: Color(0xFFD49E15),
+);
+
+const h4 = TextStyle(
+  fontSize: 12.0,
+  fontWeight: FontWeight.bold,
+  fontFamily: 'OpenSans-Bold',
+);
+
 class Styles {
   Styles();
 
   static var themeData = ThemeData(
-      primaryColor: primaryColor,
-      accentColor: secondaryColor,
-      hintColor: primaryColor);
+    primaryColor: primaryColor,
+    accentColor: secondaryColor,
+    hintColor: primaryColor,
+  );
   static var primaryColor = Color(0xFFD49E15);
   static var secondaryColor = Color(0xFFDAB14A);
   static var brandColor = Color(0xFFCDCDCD);
@@ -98,10 +140,11 @@ class Styles {
   static const inactiveColor = Color(0xFFCDCDCD);
 
   static TextStyle h1 = TextStyle(
-      fontFamily: 'OpenSans-Regular',
-      fontSize: 30.0,
-      fontStyle: FontStyle.normal,
-      fontWeight: FontWeight.bold);
+    fontFamily: 'OpenSans-Regular',
+    fontSize: 30.0,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.bold,
+  );
 
   static TextStyle h2 = TextStyle(
       fontFamily: 'OpenSans-Regular',
@@ -111,10 +154,11 @@ class Styles {
       color: Styles.primaryColor);
 
   static TextStyle h3 = TextStyle(
-      fontFamily: 'OpenSans-Regular',
-      fontSize: 15.0,
-      fontStyle: FontStyle.normal,
-      fontWeight: FontWeight.normal);
+    fontFamily: 'OpenSans-Bold',
+    fontSize: 15.0,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.bold,
+  );
 
   static TextStyle h4 = TextStyle(
     fontFamily: 'OpenSans-Light',
